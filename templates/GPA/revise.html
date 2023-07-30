@@ -1,0 +1,46 @@
+
+<html>
+    <body>
+        {{params.0.LEFT}}
+        {{params.0.RIGHT}}
+        {{params.0.NUMBERS}}
+        <a href="#" id="increase-count-link">Increment View Count</a>
+        <form>
+            {% csrf_token %}
+            <input type = 'text' name = 'name' id = 'name'>
+            <input type = 'hidden' value = '1' id = 'up'>
+            <button type = 'submit' id = 'id' value = '2' onclick='msg1()'>submit</button>
+            <button type = 'submit' id = 'id2' value = '3' onclick='msg2()'>submit2</button>
+        </form>
+        <script>
+            var a;
+            function msg1(){
+                a = 'submit';
+                //document.getElementById('id').innerHTML = a;
+            }
+            function msg2(){
+                a = 'submit2';
+                //document.getElementById('id').innerHTML = a;
+            }
+            const form = document.querySelector('form')
+            const name = document.getElementById('name')
+            const up = a
+            const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+            form.addEventListener('submit',(e) => {
+                e.preventDefault();
+                const newform = new FormData();
+                newform.append('name',name.value);
+                newform.append('up',a);
+                //newform.append('submit',submit.value);
+                newform.append('csrfmiddlewaretoken',csrf)
+                fetch("{% url 'revise' %}",{
+                    method : 'POST',
+                    body : newform,
+                });
+            });
+            $('#increase-count-linkn').click(function() {
+                $.ajax('/list/5/revise/');
+            });
+            
+        </script>
+    

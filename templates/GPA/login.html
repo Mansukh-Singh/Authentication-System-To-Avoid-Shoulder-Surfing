@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GRAPHICAL PASSWORD</title>
+        <link rel='stylesheet' href = "{% static 'style.css' %}">
+    </head>
+    <body>
+        <center>
+        <br>
+            <h2><u><a href='/GPA/'><font color = 'black'>HOME</font></a></u></h2>&ensp;&ensp;
+        <table style="width:30%">
+            <tr>
+              <th><b><font color='green'>LEFT</font></b></th>
+              <th><b><font color='green'>RIGHT</font></b></th>
+              <th><b><font color='green'>NUMBERS</font></b></th>
+            </tr>
+            <tr>
+                <td>{{ parameters.0.LEFT }}</td>
+                <td>{{ parameters.0.RIGHT }}</td>
+                <td id = 'up1'>{{ parameters.0.NUMBERS }}</td>
+            </tr>
+            <tr>
+                <td>{{ parameters.1.LEFT }}</td>
+                <td>{{ parameters.1.RIGHT }}</td>
+                <td id = 'up2'>{{ parameters.1.NUMBERS }}</td>
+            </tr>
+            <tr>
+                <td>{{ parameters.2.LEFT }}</td>
+                <td>{{ parameters.2.RIGHT }}</td>
+                <td id = 'up3'>{{ parameters.2.NUMBERS }}</td>
+            </tr>
+            <tr>
+                <td>{{ parameters.3.LEFT }}</td>
+                <td>{{ parameters.3.RIGHT }}</td>
+                <td id = 'up4'>{{ parameters.3.NUMBERS }}</td>
+            </tr>
+            <tr>
+                <td>{{ parameters.4.LEFT }}</td>
+                <td>{{ parameters.4.RIGHT }}</td>
+                <td id = 'up5'>{{ parameters.4.NUMBERS }}</td>
+            </tr>
+            <tr>
+                <td>{{ parameters.5.LEFT }}</td>
+                <td>{{ parameters.5.RIGHT }}</td>
+                <td id = 'up6'>{{ parameters.5.NUMBERS }}</td>
+            </tr>
+            <tr>
+                <td>{{ parameters.6.LEFT }}</td>
+                <td>{{ parameters.6.RIGHT }}</td>
+                <td id = 'up7'>{{ parameters.6.NUMBERS }}</td>
+            </tr>
+            <tr>
+                <td>{{ parameters.7.LEFT }}</td>
+                <td>{{ parameters.7.RIGHT }}</td>
+                <td id = 'up8'>{{ parameters.7.NUMBERS }}</td>
+            </tr>
+          </table><br><br>
+          <form action = '/GPA/login/' method = 'post'>
+            {% csrf_token %}
+          <button type= 'button' id = 'clickButton1'><b>LEFT</b></button>&ensp; &ensp; &ensp; &ensp;
+          <button type = 'button'  id = 'up' onclick="msg1()"><b>UP</b></button>&ensp; &ensp; &ensp; &ensp;
+          <button type = 'button'  id = 'down' onclick="msg2()"><b>DOWN</b></button>&ensp; &ensp; &ensp; &ensp;
+          <button type = 'button' id = 'clickButton2'><b>RIGHT</b></button><br><br>
+          {% if messages %}
+          {% for message in messages %}
+          {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+          {% endfor %}
+          {% endif %}
+          <b> PASSWORD : <input type='password' name = 'password' id="readTheInput"  placeholder='Enter your 6 digit password' /><br><br>
+            <input type = 'submit' onclick='msg3()'>
+          </form>
+            <script>
+                var a;
+                var b;
+                var data = JSON.parse("{{data|escapejs}}");
+                //var number1 = data[0];
+               document.getElementById("clickButton1").addEventListener("click", () =>{
+                  document.getElementById("readTheInput").value += data['LEFT'][data['NUMBERS'].indexOf(data['NUM'])];
+               });
+               document.getElementById("clickButton2").addEventListener("click", () =>{
+                document.getElementById("readTheInput").value += data['RIGHT'][data['NUMBERS'].indexOf(data['NUM'])];
+             });
+             function msg1(){
+                a = 'up';
+                var integer1 = data['NUMBERS'][0];
+                //window.location.assign("{% url 'login' %}");
+                //document.getElementById('id').innerHTML = a;
+                //window.History.replaceState({urlPath:"/login"},"","/login");
+                //console.log(data['NUMBERS']);
+                data['NUMBERS'][0] = data['NUMBERS'][1];
+                data['NUMBERS'][1] = data['NUMBERS'][2];
+                data['NUMBERS'][2] = data['NUMBERS'][3];
+                data['NUMBERS'][3] = data['NUMBERS'][4];
+                data['NUMBERS'][4] = data['NUMBERS'][5];
+                data['NUMBERS'][5] = data['NUMBERS'][6];
+                data['NUMBERS'][6] = data['NUMBERS'][7];
+                data['NUMBERS'][7] = integer1;
+                document.getElementById("up1").innerHTML = data['NUMBERS'][0];
+                //data['NUMBERS'][0] = data['NUMBERS'][1];
+                document.getElementById("up2").innerHTML = data['NUMBERS'][1];
+                //data['NUMBERS'][1] = data['NUMBERS'][2];
+                document.getElementById("up3").innerHTML = data['NUMBERS'][2];
+                //data['NUMBERS'][2] = data['NUMBERS'][3];
+                document.getElementById("up4").innerHTML = data['NUMBERS'][3];
+                //data['NUMBERS'][3] = data['NUMBERS'][4];
+                document.getElementById("up5").innerHTML = data['NUMBERS'][4];
+                //data['NUMBERS'][4] = data['NUMBERS'][5];
+                document.getElementById("up6").innerHTML = data['NUMBERS'][5];
+                //data['NUMBERS'][5] = data['NUMBERS'][6];
+                document.getElementById("up7").innerHTML = data['NUMBERS'][6];
+                //data['NUMBERS'][6] = data['NUMBERS'][7];
+                document.getElementById("up8").innerHTML = data['NUMBERS'][7];
+                //b = String(data['NUMBERS']);
+             }
+             function msg2(){
+                a = 'down';
+                var integer2 = data['NUMBERS'][7];
+                //console.log(data['NUMBERS']);
+                data['NUMBERS'][7] = data['NUMBERS'][6];
+                data['NUMBERS'][6] = data['NUMBERS'][5];
+                data['NUMBERS'][5] = data['NUMBERS'][4];
+                data['NUMBERS'][4] = data['NUMBERS'][3];
+                data['NUMBERS'][3] = data['NUMBERS'][2];
+                data['NUMBERS'][2] = data['NUMBERS'][1];
+                data['NUMBERS'][1] = data['NUMBERS'][0];
+                data['NUMBERS'][0] = integer2;
+                document.getElementById("up1").innerHTML = data['NUMBERS'][0];
+                //data['NUMBERS'][7] = data['NUMBERS'][6];
+                document.getElementById("up2").innerHTML = data['NUMBERS'][1];
+                //data['NUMBERS'][6] = data['NUMBERS'][5];
+                document.getElementById("up3").innerHTML = data['NUMBERS'][2];
+                //data['NUMBERS'][5] = data['NUMBERS'][4];
+                document.getElementById("up4").innerHTML = data['NUMBERS'][3];
+                //data['NUMBERS'][4] = data['NUMBERS'][3];
+                document.getElementById("up5").innerHTML = data['NUMBERS'][4];
+                //data['NUMBERS'][3] = data['NUMBERS'][2];
+                document.getElementById("up6").innerHTML = data['NUMBERS'][5];
+                //data['NUMBERS'][2] = data['NUMBERS'][1];
+                document.getElementById("up7").innerHTML = data['NUMBERS'][6];
+                //data['NUMBERS'][1] = data['NUMBERS'][0];
+                document.getElementById("up8").innerHTML = data['NUMBERS'][7];
+                //b = String(data['NUMBERS']);
+             }
+             //function msg3(){
+             //   a = document.getElementById('readTheInput').value;
+             //}
+            //#const form = document.querySelector('form')
+            //const list = b
+            //#const password = document.getElementById('readTheInput')
+            //#const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+            //#form.addEventListener('submit',(e) => {
+                //#e.preventDefault();
+                //#const newform = new FormData();
+                //newform.append('variable',a);
+                //newform.append('list',b);
+                //#newform.append('password',password.value);
+                //newform.append('password',password.value);
+                //#console.log(a);
+                //newform.append('submit',submit.value);
+                //#newform.append('csrfmiddlewaretoken',csrf)
+                //#fetch("{% url 'login' %}",{
+                    //#method : 'POST',
+                    //#body : newform,
+                //#});
+            //#});
+            </script><br><br>
+        </center>
+    </body>
+</html>

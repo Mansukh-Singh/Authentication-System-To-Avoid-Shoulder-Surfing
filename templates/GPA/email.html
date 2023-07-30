@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <center>
+        <br><br><br><br>
+        <h4> ENTER YOUR EMAIL ADDRESS TO VERIFY </h4>
+        <form action = '/GPA/email/' method = 'post'>
+            {% csrf_token %}
+            &ensp;<b> EMAIL ID : <input type = 'email' name = 'email' id = 'email' placeholder = 'Enter your email address'></b><br><br><br>
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+            {% endfor %}
+            {% endif %}
+            <input type = 'submit'>
+        </form>   
+    </center>
+    </body>
+<html>
