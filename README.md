@@ -1,0 +1,1 @@
+## The project aimed to create an authentication system with security measures consisting of three distinct phases: Registration, Verification, and Login. The primary goal was to prevent unauthorized access and mitigate the risk of shoulder surfing attacks. 
