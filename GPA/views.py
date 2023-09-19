@@ -5,9 +5,9 @@ from django.http import HttpResponse,JsonResponse
 from GPA.models import GP
 import random as rn
 from json import dumps
-LEFT = ['A','@','C','%','E','?','G','H']
-RIGHT = ['!','B','$','D','+','F','"','#']
-NUMBERS = [1,2,3,4,5,6,7,8]
+from GPA.constants import LEFT,RIGHT,NUMBERS
+
+
 parameters = {}
 # Create your views here.
 def home(request):
@@ -48,14 +48,6 @@ def login(request):
 
 
 # How to submit form without refreshing page
-def revise(request):
-    params = {0:{'LEFT':'A','RIGHT':'!','NUMBERS':1},1:{'LEFT':'B','RIGHT':'@','NUMBERS':2}}
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        up = request.POST.get('up')
-        print(name,up)
-    return render(request,'GPA/revise.html',{'params':params})
-
 def email(request):
     if request.method == 'POST':
         email = request.POST.get('email')

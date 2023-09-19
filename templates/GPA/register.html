@@ -9,17 +9,17 @@
         <br>
         <nav>
             <ul>
-                <li><h2><u><a href='/GPA/'><font color = 'black'>HOME</font></a></u></h2></li>&ensp;&ensp;
+                <li><h2><u><a href='/GPA/'><font color = 'white'>HOME</font></a></u></h2></li>&ensp;&ensp;
             </ul>
         </nav>
         <center>
         <form action='/GPA/register/' method='post'>
             {% csrf_token %}
-        &ensp; &ensp; <b>NAME : <input type = 'text' name = 'NAME' placeholder = 'Enter your name'></b><br><br>
-        &ensp; &ensp; <b>PHONE : <input type = 'tel' name = 'PHONE' placeholder = 'Enter your phone number'></b><br><br>
-        &ensp; &ensp; <b>EMAIL ID : <input type = 'email' name = 'EMAILID' placeholder = 'Enter your email'></b><br><br>
-        &ensp; &ensp; <b>PASSWORD : <input type = 'text' name = 'PASSWORD' placeholder = 'Enter your password'></b><br><br>
-        &ensp; &ensp; <b>CHOOSE NUMBER TO LOGIN :</b>
+        &ensp; &ensp; <b><font color = 'white'>NAME : </font><input type = 'text' name = 'NAME' placeholder = 'Enter your name'></b><br><br>
+        &ensp; &ensp; <b><font color = 'white'>PHONE : </font><input type = 'tel' name = 'PHONE' placeholder = 'Enter your phone number'></b><br><br>
+        &ensp; &ensp; <b><font color = 'white'>EMAIL : </font><input type = 'email' name = 'EMAILID' placeholder = 'Enter your email'></b><br><br>
+        &ensp; &ensp; <b><font color = 'white'>PASSWORD : </font><input type = 'text' name = 'PASSWORD' placeholder = 'Enter your password'></b><br><br>
+        &ensp; &ensp; <b><font color = 'white'>CHOOSE NUMBER TO LOGIN : </font></b>
                       <select name = 'NUMBER'>
                           <option value = '1'>1</option>
                           <option value = '2'>2</option>
@@ -32,7 +32,12 @@
                         </select>
                         <br><br>
                         &ensp; &ensp;<input type = 'submit'>&ensp; &ensp;
-                        <a href='/GPA/email/'><font color='green'>Already have an account?</font></a>              
+                        <a href='/GPA/email/' class="white-border-link">
+                            <span><b><font color='green'>Already</font></b></span>
+                            <span><b><font color='green'>have</font></b></span>
+                            <span><b><font color='green'>an</font></b></span>
+                            <span><b><font color='green'>account?</font></b></span>
+                        </a>              
                     </form> 
                 </center>         
         </body>

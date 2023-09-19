@@ -1,11 +1,16 @@
+{% load static %}
 <html>
+    <head>
+        <title>GRAPHICAL PASSWORD</title>
+        <link rel='stylesheet' href = "{% static 'style.css' %}">
+    </head>
     <body>
         <center>
         <br><br><br><br>
-        <h4> ENTER YOUR EMAIL ADDRESS TO VERIFY </h4>
+        <h4><font color = 'white'> ENTER YOUR EMAIL ADDRESS TO VERIFY </font></h4>
         <form action = '/GPA/email/' method = 'post'>
             {% csrf_token %}
-            &ensp;<b> EMAIL ID : <input type = 'email' name = 'email' id = 'email' placeholder = 'Enter your email address'></b><br><br><br>
+            &ensp;<b><font color = 'white'>EMAIL ID : </font><input type = 'email' name = 'email' id = 'email' placeholder = 'Enter your email address'></b><br><br><br>
             {% if messages %}
             {% for message in messages %}
             {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}

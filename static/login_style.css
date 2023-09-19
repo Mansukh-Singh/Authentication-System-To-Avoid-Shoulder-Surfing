@@ -1,12 +1,3 @@
-html {
-    background-image: url('/static/html.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(5px);
-    z-index: -1;
-}
-
-
 .bg {
     position: fixed; 
     top: -50%; 
@@ -24,19 +15,6 @@ html {
     min-width: 50%;
     min-height: 50%;
   }
-
-.white-border-link {
-    text-decoration: none; /* Remove the default underline on links */
-    border: 1px solid white; /* Add a white border around the link */
-    padding: 5px 10px; /* Add padding to create space between text and border */
-    display: inline-block; /* Make the link a block-level element for padding */
-    color: green; /* Set the text color (if not already set) */
-}
-
-
-.white-border-link font {
-    color: rgb(195, 235, 186); /* Set the text color within the <font> element */
-}
 /**{
     margin: 0;
     padding: 0;
