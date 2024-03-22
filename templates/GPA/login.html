@@ -4,11 +4,30 @@
     <head>
         <title>GRAPHICAL PASSWORD</title>
         <link rel='stylesheet' href = "{% static 'login_style.css' %}">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Gorditas:wght@400;700&display=swap'); 
+            h2,a,b,td, .submit {
+                font-family: "Gorditas", serif;
+                font-weight: 400;
+                font-style: normal;
+                color: black;
+                transition: text-shadow 0.3s, color 0.3s;
+            }
+
+            a:hover {
+                text-shadow: 0px 0px 30px rgb(0, 0, 0);
+                color: white;
+            }
+
+            table {
+                box-shadow: 0px 0px 30px 5px rgb(74, 74, 74);
+            }
+        </style>
     </head>
-    <body>
+    <body style="background: linear-gradient(rgb(167, 167, 167), white);"W>
         <center>
         <br>
-            <h2><u><a href='/GPA/'><font color = 'black'>HOME</font></a></u></h2>&ensp;&ensp;
+            <h2><a style="text-decoration:none;" href='/GPA/'>HOME</a></h2>&ensp;&ensp;
         <table style="width:30%">
             <tr>
               <th><b><font color='green'>LEFT</font></b></th>
@@ -68,7 +87,7 @@
           {% endfor %}
           {% endif %}
           <b> PASSWORD : <input type='password' name = 'password' id="readTheInput"  placeholder='Enter your 6 digit password' /><br><br>
-            <input type = 'submit' onclick='msg3()'>
+            <input class='submit' type = 'submit' onclick='msg3()'>
           </form>
             <script>
                 var a;

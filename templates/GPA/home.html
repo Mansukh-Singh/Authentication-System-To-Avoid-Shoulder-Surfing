@@ -4,12 +4,30 @@
         <title>GRAPHICAL PASSWORD</title>
         <link rel='stylesheet' href = "{% static 'style.css' %}">
     </head>
-    <body>
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Gorditas:wght@400;700&display=swap'); 
+            h2, a {
+                font-family: "Gorditas", serif;
+                font-weight: 400;
+                font-style: normal;
+                color: black;
+                transition: text-shadow 0.3s, color 0.3s;
+            }
+
+            a:hover {
+                text-shadow: 0px 0px 30px rgb(0, 0, 0);
+                color: white;
+            }
+
+    </style>
+    <body style="background: linear-gradient(to bottom, rgb(255, 0, 166), white);">
         <br>
         <nav>
+            <center>
             <ul>
-                <li><h2><u><a href='register/'><font color = 'white'>REGISTER</font></a></u></h2></li>&ensp;&ensp;
+                <li style="list-style:none;"><h2><a style="text-decoration:none;" href='register/'>REGISTER</a></h2></li>&ensp;&ensp;
             </ul>
+            </center>
         </nav>
     </body>
 </html>

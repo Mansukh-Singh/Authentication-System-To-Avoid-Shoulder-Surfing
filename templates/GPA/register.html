@@ -4,22 +4,38 @@
     <head>
         <title>GRAPHICAL PASSWORD</title>
         <link rel='stylesheet' href = "{% static 'style.css' %}">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Gorditas:wght@400;700&display=swap'); 
+            h2, a, b, .submit{
+                font-family: "Gorditas", serif;
+                font-weight: 400;
+                font-style: normal;
+                color: black;
+                transition: text-shadow 0.3s, color 0.3s;
+            }
+            a:hover {
+                text-shadow: 0px 0px 30px rgb(0, 0, 0);
+                color: white;
+            }
+        </style>
     </head>
-    <body>
+    <body style="background: linear-gradient(to bottom ,rgb(128, 255, 1), white); background-repeat: no-repeat;">
         <br>
         <nav>
+            <center>
             <ul>
-                <li><h2><u><a href='/GPA/'><font color = 'white'>HOME</font></a></u></h2></li>&ensp;&ensp;
+                <li style="list-style:none;"><h2><a style="text-decoration:none;" href='/GPA/'>HOME</a></h2></li>&ensp;&ensp;
             </ul>
+            </center>
         </nav>
         <center>
         <form action='/GPA/register/' method='post'>
             {% csrf_token %}
-        &ensp; &ensp; <b><font color = 'white'>NAME : </font><input type = 'text' name = 'NAME' placeholder = 'Enter your name'></b><br><br>
-        &ensp; &ensp; <b><font color = 'white'>PHONE : </font><input type = 'tel' name = 'PHONE' placeholder = 'Enter your phone number'></b><br><br>
-        &ensp; &ensp; <b><font color = 'white'>EMAIL : </font><input type = 'email' name = 'EMAILID' placeholder = 'Enter your email'></b><br><br>
-        &ensp; &ensp; <b><font color = 'white'>PASSWORD : </font><input type = 'text' name = 'PASSWORD' placeholder = 'Enter your password'></b><br><br>
-        &ensp; &ensp; <b><font color = 'white'>CHOOSE NUMBER TO LOGIN : </font></b>
+        &ensp; &ensp; <b><font color = 'black'>NAME : </font><input type = 'text' name = 'NAME' placeholder = 'Enter your name'></b><br><br>
+        &ensp; &ensp; <b><font color = 'black'>PHONE : </font><input type = 'tel' name = 'PHONE' placeholder = 'Enter your phone number'></b><br><br>
+        &ensp; &ensp; <b><font color = 'black'>EMAIL : </font><input type = 'email' name = 'EMAILID' placeholder = 'Enter your email'></b><br><br>
+        &ensp; &ensp; <b><font color = 'black'>PASSWORD : </font><input type = 'text' name = 'PASSWORD' placeholder = 'Enter your password'></b><br><br>
+        &ensp; &ensp; <b><font color = 'black'>CHOOSE NUMBER TO LOGIN : </font></b>
                       <select name = 'NUMBER'>
                           <option value = '1'>1</option>
                           <option value = '2'>2</option>
@@ -31,8 +47,8 @@
                           <option value = '8'>8</option>
                         </select>
                         <br><br>
-                        &ensp; &ensp;<input type = 'submit'>&ensp; &ensp;
-                        <a href='/GPA/email/' class="white-border-link">
+                        &ensp; &ensp;<input class='submit' type = 'submit'>&ensp; &ensp;
+                        <a style="text-decoration:none;" href='/GPA/email/' class="white-border-link">
                             <span><b><font color='green'>Already</font></b></span>
                             <span><b><font color='green'>have</font></b></span>
                             <span><b><font color='green'>an</font></b></span>
